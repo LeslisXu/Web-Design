@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style2.css" />  <!-- 引入style2样式 -->
+	</head>
+	<body>
+		
+		<!-- 正文部分 -->
+		<div class="content">
+			<a name="part1"></a>
+			<div class="container1">
+				<div class="text1 text">
+					<div class="title1 title"><b>关于书屋</b></div>
+					探索智慧的源头，畅游知识的海洋，引领你走向无限可能。
+					
+					<!-- 学校简介 -->
+					<div>
+						<h2>学校简介</h2>
+						<p>在这里写文本</p>
+						<p>在这里写文本</p>
+						<!-- 插入图片 -->
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

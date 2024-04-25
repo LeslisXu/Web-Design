@@ -1,0 +1,91 @@
+!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>关于西电书屋</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" /> <!-- 引入style2样式 -->
+</head>
+<body>
+    <!-- 正文部分 -->
+    <div class="content">
+        <a name="part1"></a>
+        <div class="container1">
+            <div class="text1 text">
+                <div class="title1 title"><b>关于西电书屋</b></div>
+                探索智慧的源头，畅游知识的海洋，西安电子科技大学图书馆，引领你走向无限可能。
+                <p>欢迎来西电书屋找我们玩!!!</p>
+                <p>地址：陕西省西安市长安区西安电子科技大学校图书馆206</p>
+            </div>
+            <!-- 百度地图容器 -->
+            <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+        </div>
+    </div>
+
+    <!-- 引用百度地图的代码 -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=gGDDwaHnLZSdUFpIGpjlkpgWRZRoBVFQ&v=1.1&services=true"></script>
+    <script type="text/javascript">
+        // 百度地图初始化函数
+        function initMap() {
+            var map = new BMap.Map("dituContent"); // 在百度地图容器中创建一个地图
+            var point = new BMap.Point(108.83022, 34.12467); // 定义一个中心点坐标
+            map.centerAndZoom(point, 17); // 设定地图的中心点和坐标并将地图显示在地图容器中
+            window.map = map; // 将map变量存储在全局
+        }
+
+        // 添加地图事件
+        function setMapEvent() {
+            // 启用地图拖拽事件，默认启用(可不写)
+            map.enableDragging();
+            // 启用地图滚轮放大缩小
+            map.enableScrollWheelZoom();
+            // 启用鼠标双击放大，默认启用(可不写)
+            map.enableDoubleClickZoom();
+            // 启用键盘上下左右键移动地图
+            map.enableKeyboard();
+        }
+
+        // 添加地图控件
+        function addMapControl() {
+            // 向地图中添加缩放控件
+            var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+            map.addControl(ctrl_nav);
+            // 向地图中添加缩略图控件
+            var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
+            map.addControl(ctrl_ove);
+            // 向地图中添加比例尺控件
+            var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+            map.addControl(ctrl_sca);
+        }
+
+        // 创建标注
+        function addMarker() {
+            // 标注点数组
+            var markerArr = [{
+                title: "学瀚楼",
+                content: "我的备注",
+                point: "110.344371|21.293922",
+                isOpen: 0,
+                icon: { w: 21, h: 21, l: 0, t: 0, x: 6, lb: 5 }
+            }];
+
+            for (var i = 0; i < markerArr.length; i++) {
+                var json = markerArr[i];
+                var p0 = json.point.split("|")[0];
+                var p1 = json.point.split("|")[1];
+                var point = new BMap.Point(p0, p1);
+                var iconImg = createIcon(json.icon);
+                var marker = new BMap.Marker(point, { icon: iconImg });
+                var iw = createInfoWindow(i);
+                var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
+                marker.setLabel(label);
+                map.addOverlay(marker);
+                label.setStyle({
+                    borderColor: "#808080",
+                    color: "#333",
+                    cursor: "pointer"
+                });
+
+                (function () {
+                    var index = i;
+                    var _iw = createInfoWindow(i);
+                    var _

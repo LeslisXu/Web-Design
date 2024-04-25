@@ -1,0 +1,15 @@
+老师您好，我做的网页是一个西电图书的购书系统。它大致由网页导航栏目顶端和每一个导航栏目下对应的网页组成。
+在首页，放置了两个跳转的网页按钮；分别跳转到”关于网站“（对应的index3-about.jsp文件，以及”进入书屋“栏目（对应的是index2.jsp文件，这部分代码的实现技术是”<button class="button1" onclick="window.location.href='index3-about.jsp'">关于网站</button> ）引入了两个button类，并且设置了跳转到的文件分别为index3-about.jsp文件和index2.jsp文件。
+
+
+之后是浏览图书页，首先我们选择对应的“教科书”，“课外书籍”标签，该处对应的是数据库mobileclassify表格，可以在表格里添加行数以增加更多下拉的选项。用户选择了某个分类并点击提交按钮后，整个表单将被提交到 queryServlet之中。
+
+之后弹出对应的界面byPageShow.jsp，这个界面对应的是数据库mobileform表格，点击查看细节里的图书详情会跳转到showDetail.jsp文件，对应的仍然是同一个数据库，但是在.jsp文件打印出来的表单标签里的内容是不一样的，比如这里就把图片也打印了出来。
+
+
+注册页面，用户输入的用户名称，用户密码等属性对应jsp文件里的表单数据，表单提交时将请求发送到 registerServlet 并使用 POST 方法。输入框 (<input>) 和表单项 (<form>) 中的 name 属性指定了每个输入字段的名称，这些名称在提交表单时将作为参数传递给后端的 Servlet。在后端的 registerServlet 中，可以通过 request.getParameter("parameter_name") 方法来获取用户在注册表单中输入的值，其中 parameter_name 是对应 HTML 表单元素的 name 属性值。
+
+之后的登陆界面也是一样，<form> 标签定义了一个表单，action 属性指向了 loginServlet，意味着当用户提交表单时，表单数据将发送到 loginServlet 处理登录逻辑。
+
+
+之后是关于网站
